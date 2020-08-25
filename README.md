@@ -11,14 +11,13 @@
 | family_name          | string     | null: false                    |
 | first_name_furigana  | string     | null: false                    |
 | family_name_furigana | string     | null: false                    |
-| birth_day_id         | date       | null: false, foreign_key: true |
+| birth_day            | date       | null: false, foreign_key: true |
 
 ### Association
 
 - has_many :items
 - has_many :comments
 - has_many :orders
-- belongs_to_active_hash :birth_day
 
 
 
@@ -29,11 +28,13 @@
 | prefecture_id     | integer    | null: false |
 | city              | string     | null: false |
 | building_name     | string     |             |
+| house_number      | string     | null: false |
 | phone_number      | string     | null: false |
 
 ### Association
 
 - belongs_to :prefectures
+- belongs_to :orders
 
 
 ## items テーブル
@@ -49,12 +50,12 @@
 | prefecture_id     | integer    | null: false                   |
 | postage_id        | integer    | null: false                   |
 | preparation_id    | integer    | null: false                   |
-| user_id           | references | null: false foreign_key :true |
+| user_id           | integer    | null: false foreign_key :true |
 
 ### Association
 
-- has_one :item_images
-- has_one :orders
+- has_one :item_image
+- has_one :order
 - has_many :comments
 - belongs_to_active_hash :categories
 - belongs_to_active_hash :item_conditions
@@ -68,8 +69,8 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user_id | integer    | null: false, foreign_key: true |
+| item_id | integer    | null: false, foreign_key: true |
 | comment | text       | null: false                    |
 
 ### Association
@@ -101,6 +102,7 @@
 
 - belongs_to :item
 - belongs_to :user
+- has_one :destination
 
 
 
