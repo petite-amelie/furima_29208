@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column               | Type       | Options                        |
-| -------------------- | ---------- | ------------------------------ |
-| nickname             | string     | null: false                    |
-| email                | string     | null: false                    |
-| password             | string     | null: false                    |
-| first_name           | string     | null: false                    |
-| family_name          | string     | null: false                    |
-| first_name_furigana  | string     | null: false                    |
-| family_name_furigana | string     | null: false                    |
-| birth_day            | date       | null: false, foreign_key: true |
+| Column               | Type       | Options     |
+| -------------------- | ---------- | ----------- |
+| nickname             | string     | null: false |
+| email                | string     | null: false |
+| password             | string     | null: false |
+| first_name           | string     | null: false |
+| family_name          | string     | null: false |
+| first_name_furigana  | string     | null: false |
+| family_name_furigana | string     | null: false |
+| birth_day            | date       | null: false |
 
 ### Association
 
@@ -34,7 +34,7 @@
 
 ### Association
 
-- belongs_to :prefectures
+- belongs_to_active_hash :prefectures
 - belongs_to :orders
 
 
