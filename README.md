@@ -30,6 +30,7 @@
 | building_name     | string     |             |
 | house_number      | string     | null: false |
 | phone_number      | string     | null: false |
+| order_id          | integer    | null: false |
 
 ### Association
 
