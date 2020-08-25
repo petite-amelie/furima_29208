@@ -45,7 +45,6 @@
 | name              | string     | null: false                   |
 | price             | integer    | null: false                   |
 | introduction      | text       | null: false                   |
-| item_image_id     | integer    | null: false                   |
 | category_id       | integer    | null: false                   |
 | item_condition_id | integer    | null: false                   |
 | prefecture_id     | integer    | null: false                   |
@@ -55,7 +54,6 @@
 
 ### Association
 
-- has_one :item_image
 - has_one :order
 - has_many :comments
 - belongs_to_active_hash :category
@@ -79,17 +77,6 @@
 - belongs_to :user
 - belongs_to :item
 
-
-## item_images テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| item_id | references | null: false, foreign_key: true |
-| url     | string     | null: false                    |
-
-### Association
-
-- belongs_to :item
 
 
 ## orders テーブル
