@@ -34,8 +34,8 @@
 
 ### Association
 
-- belongs_to_active_hash :prefectures
-- belongs_to :orders
+- belongs_to_active_hash :prefecture
+- belongs_to :order
 
 
 ## items テーブル
@@ -58,12 +58,12 @@
 - has_one :item_image
 - has_one :order
 - has_many :comments
-- belongs_to_active_hash :categories
-- belongs_to_active_hash :item_conditions
-- belongs_to_active_hash :prefectures
-- belongs_to_active_hash :postage_types
-- belongs_to_active_hash :preparations
-- belongs_to_active_hash :users
+- belongs_to_active_hash :categorie
+- belongs_to_active_hash :item_condition
+- belongs_to_active_hash :prefecture
+- belongs_to_active_hash :postage_type
+- belongs_to_active_hash :preparation
+- belongs_to_active_hash :user
 
 
 ## comments テーブル
@@ -76,8 +76,8 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 
 ## item_images テーブル
@@ -89,7 +89,7 @@
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 
 
 ## orders テーブル
