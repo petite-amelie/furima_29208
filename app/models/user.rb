@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   validates :nickname, :birth_day, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: { case_sensitive: true }
   
 end
