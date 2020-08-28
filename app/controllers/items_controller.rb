@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :to_top_page, only: [:new]
   def index
   end
 
@@ -27,5 +28,11 @@ class ItemsController < ApplicationController
     ).merge(
       user_id: current_user.id
     )
+  end
+  
+  def to_top_page
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 end
