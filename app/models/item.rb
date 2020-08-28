@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :postage_type
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation
+  has_one_attached :image
 
   validates :name, :price, :introduction, :category_id, :item_condition_id, :prefecture_id,:postage_type_id, :preparation_id, :user_id, presence: true
 
