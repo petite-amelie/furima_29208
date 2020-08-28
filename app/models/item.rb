@@ -7,7 +7,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation
   has_one_attached :image
 
-  validates :name, :price, :introduction, :category_id, :item_condition_id, :prefecture_id,:postage_type_id, :preparation_id, :user_id, presence: true
+  # validates :price, format: { with: /\A[0-9]+\z/ }
+  validates :price, :numericality => { :greater_than_or_equal_to => 300, :less_than_or_equal_to => 9999999 }
+  validates :name, :price, :introduction, :user_id, :image, presence: true
 
   with_options numericality: { other_than: 1 } do
     validates :category_id, :item_condition_id, :postage_type_id,:prefecture_id,:preparation_id
