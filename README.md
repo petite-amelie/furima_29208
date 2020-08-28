@@ -48,7 +48,7 @@
 | category_id       | integer    | null: false                   |
 | item_condition_id | integer    | null: false                   |
 | prefecture_id     | integer    | null: false                   |
-| postage_id        | integer    | null: false                   |
+| postage_type_id   | integer    | null: false                   |
 | preparation_id    | integer    | null: false                   |
 | user_id           | integer    | null: false foreign_key :true |
 
