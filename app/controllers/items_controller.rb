@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :to_top_page, only: [:new]
   def index
+    @items = Item.all
   end
 
   def new
