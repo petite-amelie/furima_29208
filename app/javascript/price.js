@@ -1,7 +1,7 @@
-window.addEventListener('load', function(){
+function calculation() {
 
   const price = document.getElementById("item-price")
-  price.addEventListener('input', function(){
+  price.addEventListener('input', function() {
     // 手数料の計算
     var input_price = price.value
     var fee = input_price * 0.1
@@ -13,4 +13,6 @@ window.addEventListener('load', function(){
     const output_profit = document.getElementById("profit")
     output_profit.textContent = profit
   })
-})
+}
+
+window.addEventListener('load', calculation)
