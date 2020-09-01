@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :to_top_page, only: [:new]
-  before_action :authenticate_user! , except: [:index]
+  before_action :authenticate_user! , except: [:index, :show]
+  before_action :item_parameter, only: [:show]
+
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -36,5 +38,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
     end
+  end
+
+  def item_parameter
+    @item = Item.find(params[:id])
   end
 end
