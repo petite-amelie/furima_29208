@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :to_top_page, only: [:new]
   before_action :authenticate_user! , except: [:index, :show]
-  before_action :item_parameter, only: [:show]
+  before_action :item_parameter, only: [:show, :edit]
 
   def index
     @items = Item.all.order("created_at DESC")
