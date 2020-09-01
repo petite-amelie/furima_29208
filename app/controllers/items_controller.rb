@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :to_top_page, only: [:new]
   before_action :authenticate_user! , except: [:index, :show]
-  before_action :item_parameter, only: [:show, :edit, :update]
+  before_action :item_parameter, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit]
 
   def index
@@ -27,6 +27,12 @@ class ItemsController < ApplicationController
       redirect_to item_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @item.destroy
+      redirect_to root_path
     end
   end
 
