@@ -6,6 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :preparation
   has_one_attached :image
+  has_one :order
 
   validates :price, :numericality => { :greater_than_or_equal_to => 300, :less_than_or_equal_to => 9999999 }
   validates :name, :price, :introduction, :user_id, :image, presence: true
