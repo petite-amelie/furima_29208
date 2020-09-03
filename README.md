@@ -85,7 +85,6 @@
 | -------        | ------- | ------------------------------ |
 | item_id        | integer | null: false, foreign_key: true |
 | user_id        | integer | null: false, foreign_key: true |
-| destination_id | integer | null: false, foreign_key: true |
 
 ### Association
 
