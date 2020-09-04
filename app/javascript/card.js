@@ -28,6 +28,8 @@ const pay = () => {
  
       document.getElementById("charge-form").submit();
       document.getElementById("charge-form").reset();
+      } else if (status == 402) {
+        window.alert('カード情報が正しくありません');
       }
     });
   });
