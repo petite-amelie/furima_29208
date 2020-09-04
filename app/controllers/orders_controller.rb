@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  
+  before_action :can_not_direct_order, only: [:index]
+
   def index
     @item = Item.find(params[:item_id])
     @order = OrderDestination.new
@@ -32,6 +33,13 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency:'jpy'
     )
+  end
+
+  def can_not_direct_order
+    @item = Item.find(params[:item_id])
+    if @item.user_id == current_user.id
+      redirect_to root_path
+    end
   end
 
 end
