@@ -48,6 +48,11 @@ RSpec.describe OrderDestination, type: :model do
       @od.valid?
       expect(@od.errors.full_messages).to include("Phone number is invalid")
     end
+    it 'tokenが空だと購入できない' do
+      @od.token = ""
+      @od.valid?
+      expect(@od.errors.full_messages).to include("Token can't be blank")
+    end
     it '全て値が正しく存在すれば登録できる' do
       expect(@od).to be_valid
     end
