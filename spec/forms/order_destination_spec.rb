@@ -43,6 +43,14 @@ RSpec.describe OrderDestination, type: :model do
       @od.valid?
       expect(@od.errors.full_messages).to include("Phone number is invalid")
     end
+    it '電話番号が12桁だと購入できない' do
+      @od.phone_number = "012345678912"
+      @od.valid?
+      expect(@od.errors.full_messages).to include("Phone number is invalid")
+    end
+    it '全て値が正しく存在すれば登録できる' do
+      expect(@od).to be_valid
+    end
   end
 
 end
