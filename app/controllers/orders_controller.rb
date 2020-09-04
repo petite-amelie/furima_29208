@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :can_not_direct_order, only: [:index]
+  before_action :deja_order, only: [:index]
 
   def index
     @item = Item.find(params[:item_id])
@@ -38,6 +39,13 @@ class OrdersController < ApplicationController
   def can_not_direct_order
     @item = Item.find(params[:item_id])
     if @item.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def deja_order
+    @order = Order.select('item_id')
+    if request.referer == nil && Item.find(params[:item_id]).order != nil
       redirect_to root_path
     end
   end
