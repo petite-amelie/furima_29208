@@ -1,14 +1,13 @@
 class OrdersController < ApplicationController
   before_action :can_not_direct_order, only: [:index]
   before_action :deja_order, only: [:index]
+  before_action :item_params, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @order = OrderDestination.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @order = OrderDestination.new(order_params)
     if @order.valid?
       pay_item
@@ -44,10 +43,13 @@ class OrdersController < ApplicationController
   end
 
   def deja_order
-    @order = Order.select('item_id')
     if request.referer == nil && Item.find(params[:item_id]).order != nil
       redirect_to root_path
     end
+  end
+
+  def item_params
+    @item = Item.find(params[:item_id])
   end
 
 end
